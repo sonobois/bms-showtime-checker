@@ -40,8 +40,8 @@ def check_movie_showtimes(title, url, date):
 
 if __name__ == "__main__":
     urls = {
-        "IMAX 3D": r"https://in.bookmyshow.com/buytickets/doctor-strange-in-the-multiverse-of-madness-bengaluru/movie-bang-ET00326385-MT/20220506",
-        "3D": r"https://in.bookmyshow.com/buytickets/doctor-strange-in-the-multiverse-of-madness-bengaluru/movie-bang-ET00326386-MT/20220506"
+        "Doctor Strange Multiverse of Madness - IMAX 3D": r"https://in.bookmyshow.com/buytickets/doctor-strange-in-the-multiverse-of-madness-bengaluru/movie-bang-ET00326385-MT/20220506",
+        "Doctor Strange Multiverse of Madness - 3D": r"https://in.bookmyshow.com/buytickets/doctor-strange-in-the-multiverse-of-madness-bengaluru/movie-bang-ET00326386-MT/20220506"
     }
     date = datetime.datetime(2022, 5, 14, tzinfo=IST).date()
     logging.info(f"Setting up scheduler for checking showtimes on {date}")
