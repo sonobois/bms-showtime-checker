@@ -6,14 +6,15 @@ import datetime
 from bs4 import BeautifulSoup
 from apscheduler.schedulers.background import BackgroundScheduler
 
-IST = pytz.timezone('Asia/Kolkata')
+IST = pytz.timezone("Asia/Kolkata")
 logging.basicConfig(
     level=logging.NOTSET,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)d - %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S',
-    filename='app.log',
-    filemode='w'
+    format="%(asctime)s - %(name)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)d - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+    filename="app.log",
+    filemode="w",
 )
+
 
 def check_movie_showtime_availability(url, date, title):
     logging.debug(f"Checking for {title}: {url} on {date}")
@@ -52,12 +53,11 @@ def check_movie_showtime_availability(url, date, title):
         logging.error(f"Error while checking movie availability for {url}: {e}")
         return False, None
 
+
 if __name__ == "__main__":
     urls = {
-        "Doctor Strange Multiverse of Madness - IMAX 3D": 
-            r"https://in.bookmyshow.com/buytickets/doctor-strange-in-the-multiverse-of-madness-bengaluru/movie-bang-ET00326385-MT/20220506",
-        "Doctor Strange Multiverse of Madness - 3D": 
-            r"https://in.bookmyshow.com/buytickets/doctor-strange-in-the-multiverse-of-madness-bengaluru/movie-bang-ET00326386-MT/20220506"
+        "Doctor Strange Multiverse of Madness - IMAX 3D": r"https://in.bookmyshow.com/buytickets/doctor-strange-in-the-multiverse-of-madness-bengaluru/movie-bang-ET00326385-MT/20220506",
+        "Doctor Strange Multiverse of Madness - 3D": r"https://in.bookmyshow.com/buytickets/doctor-strange-in-the-multiverse-of-madness-bengaluru/movie-bang-ET00326386-MT/20220506",
     }
     date = datetime.datetime(2022, 5, 14, tzinfo=IST).date()
     logging.info(f"Setting up scheduler for checking showtimes on {date}")
